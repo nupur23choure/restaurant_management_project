@@ -2,9 +2,6 @@ from django.db import models
 from account.models import UserProfile
 from products.models import Menu
 
-
-# Create your models here.
-
 class OrderModel(models.Model):
     STATUS_CHOICES = [
         ('PENDING', 'Pending'),
@@ -18,6 +15,5 @@ class OrderModel(models.Model):
     order_status = models.CharField(max_length=10, choices= STATUS_CHOICES, default='PENDING')
     create_at = models.DAteTimeField(auto_now_add = True)
 
-    defe __str__(self):
+    def __str__(self):
         return f"Order #{self.id} by {self.customer.name}"
-
