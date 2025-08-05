@@ -11,7 +11,7 @@ class OrderModel(models.Model):
     ]
     customer = models.ForeignKey(UserProfile, on_delete = models.CASCADE)
     order_item = models.ManyToManyField(Menu)
-    total_amount = models.DecimalField(max_digiti = 10, decimal_places=2)
+    total_amount = models.DecimalField(max_digits = 10, decimal_places=2)
     order_status = models.CharField(max_length=10, choices= STATUS_CHOICES, default='PENDING')
     create_at = models.DAteTimeField(auto_now_add = True)
 
