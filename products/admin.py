@@ -1,11 +1,8 @@
 from django.contrib import admin
-from .models import *
+from .models import Dish
 
 
-# Custom Admins
-class ItemAdmin(admin.ModelAdmin):
-    list_display = ['item_name','item_price','created_at']
-
-
-# Register your models here.
-admin.site.register(Item,ItemAdmin)
+@admin.register(Dish)
+class DishAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')
+    search_field = ('name',)
